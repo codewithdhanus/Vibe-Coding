@@ -136,7 +136,7 @@
 
   .btn-wakanda {
     @apply relative px-6 py-3 bg-gradient-to-r from-secondary to-secondary/80 text-secondary-foreground font-semibold rounded-lg;
-    @apply transform transition-all duration-400 hover:scale-105 hover:shadow-[var(--shadow-wakanda)];
+    @apply transform transition-all duration-300 hover:scale-105 hover:shadow-[var(--shadow-wakanda)];
     @apply border border-secondary/30 hover:border-secondary/60;
   }
 
