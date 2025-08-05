@@ -2,7 +2,7 @@
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/78a8d9fb-3310-4ea7-a3fb-84656ae2f569
+**URL**: https://vibe-coding-eight-brown.vercel.app/
 
 ## How can I edit this code?
 
