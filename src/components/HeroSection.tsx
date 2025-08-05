@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronRight, Zap, Shield, Sparkles } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import marvelHeroBg from '@/assets/marvel-hero-bg.jpg';
 
 export const HeroSection = () => {
+  const navigate = useNavigate();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -60,8 +62,8 @@ export const HeroSection = () => {
       <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
         <div className="mb-8">
           <h1 className="text-7xl md:text-9xl font-black mb-6 leading-none">
-            <span className="text-gradient-iron block mb-2">MARVEL</span>
-            <span className="text-gradient-wakanda">UNIVERSE</span>
+            <span className="text-gradient-marvel block mb-2">MARVEL</span>
+            <span className="text-gradient-hero">UNIVERSE</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Experience the cinematic magic where heroes rise, legends are born, 
@@ -71,13 +73,19 @@ export const HeroSection = () => {
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-6 items-center justify-center mb-12">
-          <Button className="btn-hero group">
+          <Button 
+            className="btn-hero group"
+            onClick={() => navigate('/universe')}
+          >
             <Zap className="w-5 h-5 mr-2 group-hover:animate-pulse" />
             Enter the Multiverse
             <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
           
-          <Button className="btn-wakanda group">
+          <Button 
+            className="btn-marvel group"
+            onClick={() => navigate('/heroes')}
+          >
             <Shield className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
             Discover Heroes
           </Button>

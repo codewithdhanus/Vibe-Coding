@@ -9,6 +9,7 @@ import {
   Flame,
   ArrowRight 
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import portalBg from '@/assets/portal-bg.jpg';
 import arcReactor from '@/assets/arc-reactor.jpg';
 
@@ -60,6 +61,7 @@ const features = [
 ];
 
 export const FeaturesSection = () => {
+  const navigate = useNavigate();
   return (
     <section className="py-32 px-6 bg-gradient-space relative overflow-hidden">
       {/* Background Elements */}
@@ -81,8 +83,8 @@ export const FeaturesSection = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
           <h2 className="text-5xl md:text-6xl font-black mb-6">
-            <span className="text-gradient-arc">HEROIC</span>{' '}
-            <span className="text-gradient-iron">POWERS</span>
+            <span className="text-gradient-marvel">HEROIC</span>{' '}
+            <span className="text-gradient-hero">POWERS</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Discover the extraordinary abilities that make our heroes legendary. 
@@ -116,7 +118,7 @@ export const FeaturesSection = () => {
                   <feature.icon className="w-12 h-12 text-primary glow-primary group-hover:animate-pulse" />
                 </div>
                 
-                <h3 className="text-2xl font-bold mb-4 text-gradient-iron group-hover:text-gradient-arc transition-all duration-500">
+                <h3 className="text-2xl font-bold mb-4 text-gradient-marvel group-hover:text-gradient-hero transition-all duration-500">
                   {feature.title}
                 </h3>
                 
@@ -127,6 +129,7 @@ export const FeaturesSection = () => {
                 <Button 
                   variant="ghost" 
                   className="group/btn p-0 h-auto text-primary hover:text-primary-glow font-semibold"
+                  onClick={() => navigate('/powers')}
                 >
                   Explore Power
                   <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
@@ -138,7 +141,10 @@ export const FeaturesSection = () => {
 
         {/* Call to Action */}
         <div className="text-center mt-20">
-          <Button className="btn-hero text-xl px-12 py-6">
+          <Button 
+            className="btn-hero text-xl px-12 py-6"
+            onClick={() => navigate('/heroes')}
+          >
             <Zap className="w-6 h-6 mr-3" />
             Assemble Your Team
             <ArrowRight className="w-6 h-6 ml-3" />

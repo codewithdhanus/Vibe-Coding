@@ -65,17 +65,16 @@ export default {
 				}
 			},
 			backgroundImage: {
-				'gradient-iron': 'var(--gradient-iron)',
-				'gradient-wakanda': 'var(--gradient-wakanda)', 
+				'gradient-marvel': 'var(--gradient-marvel)',
+				'gradient-hero': 'var(--gradient-hero)', 
 				'gradient-space': 'var(--gradient-space)',
-				'gradient-arc': 'var(--gradient-arc)',
-				'gradient-hero': 'var(--gradient-hero)'
+				'gradient-red-gold': 'var(--gradient-red-gold)',
+				'gradient-dark': 'var(--gradient-dark)'
 			},
 			boxShadow: {
-				'iron': 'var(--shadow-iron)',
-				'wakanda': 'var(--shadow-wakanda)',
+				'marvel': 'var(--shadow-marvel)',
 				'hero': 'var(--shadow-hero)',
-				'portal': 'var(--shadow-portal)'
+				'glow': 'var(--shadow-glow)'
 			},
 			transitionTimingFunction: {
 				'smooth': 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
