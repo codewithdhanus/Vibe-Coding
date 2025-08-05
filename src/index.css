@@ -2,41 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* MARVEL CINEMATIC DESIGN SYSTEM - Worthy of Asgard */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Marvel Universe Colors */
+    --background: 210 25% 8%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 210 30% 12%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 210 30% 10%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
+    /* Iron Man Inspired Primary */
+    --primary: 14 100% 55%;
     --primary-foreground: 210 40% 98%;
+    --primary-glow: 45 100% 65%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Wakandan Secondary */
+    --secondary: 258 100% 35%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Captain America Accent */
+    --muted: 210 40% 20%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 220 100% 60%;
+    --accent-foreground: 210 40% 98%;
 
-    --destructive: 0 84.2% 60.2%;
+    /* Hulk Destructive */
+    --destructive: 120 75% 45%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 210 20% 25%;
+    --input: 210 20% 15%;
+    --ring: 14 100% 55%;
 
-    --radius: 0.5rem;
+    /* Marvel Gradients */
+    --gradient-iron: linear-gradient(135deg, hsl(14 100% 55%), hsl(45 100% 65%));
+    --gradient-wakanda: linear-gradient(135deg, hsl(258 100% 35%), hsl(280 100% 55%));
+    --gradient-space: linear-gradient(135deg, hsl(210 25% 8%), hsl(258 100% 25%));
+    --gradient-arc: linear-gradient(135deg, hsl(220 100% 60%), hsl(14 100% 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(210 25% 8%) 0%, hsl(258 100% 15%) 50%, hsl(14 100% 25%) 100%);
+
+    /* Cinematic Shadows */
+    --shadow-iron: 0 20px 60px -10px hsl(14 100% 55% / 0.4);
+    --shadow-wakanda: 0 20px 60px -10px hsl(258 100% 35% / 0.4);
+    --shadow-hero: 0 25px 80px -15px hsl(14 100% 55% / 0.3);
+    --shadow-portal: 0 0 100px hsl(45 100% 65% / 0.6);
+
+    /* Smooth Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +121,106 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
+  }
+}
+
+@layer components {
+  /* Hero Button Variants */
+  .btn-hero {
+    @apply relative px-8 py-4 bg-gradient-to-r from-primary to-primary-glow text-primary-foreground font-bold text-lg rounded-lg overflow-hidden;
+    @apply transform transition-all duration-500 hover:scale-105 hover:shadow-[var(--shadow-hero)];
+    @apply before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent;
+    @apply before:translate-x-[-200%] before:transition-transform before:duration-700 hover:before:translate-x-[200%];
+  }
+
+  .btn-wakanda {
+    @apply relative px-6 py-3 bg-gradient-to-r from-secondary to-secondary/80 text-secondary-foreground font-semibold rounded-lg;
+    @apply transform transition-all duration-400 hover:scale-105 hover:shadow-[var(--shadow-wakanda)];
+    @apply border border-secondary/30 hover:border-secondary/60;
+  }
+
+  /* Portal Animation */
+  .portal-ring {
+    @apply absolute inset-0 rounded-full border-2 border-primary/30;
+    animation: portal-spin 4s linear infinite;
+  }
+
+  .portal-ring:nth-child(2) {
+    animation-delay: -1s;
+    @apply border-accent/30;
+  }
+
+  .portal-ring:nth-child(3) {
+    animation-delay: -2s;
+    @apply border-secondary/30;
+  }
+
+  /* Floating Animation */
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Glow Effects */
+  .glow-primary {
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.5);
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 30px hsl(var(--accent) / 0.5);
+  }
+
+  /* Text Gradients */
+  .text-gradient-iron {
+    background: var(--gradient-iron);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-wakanda {
+    background: var(--gradient-wakanda);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-arc {
+    background: var(--gradient-arc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@keyframes portal-spin {
+  from {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  to {
+    transform: rotate(360deg) scale(1.1);
+    opacity: 0.3;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(var(--primary) / 0.7);
   }
 }
